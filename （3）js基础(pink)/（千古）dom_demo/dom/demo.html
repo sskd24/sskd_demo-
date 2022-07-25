@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: "Helvetica", "Arial", serif;
+            margin: 15px 75px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+
+        a {
+            display: inline-block;
+            padding-left: 0 10px;
+
+        }
+        .datu{
+            width: 400px;
+            height: 300px;
+        }
+        h3 {
+            color: #cc6684;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>美女画廊</h1>
+    <h3>注册</h3>
+    <ul>
+        <li>
+            <a href="image/1.jpg" title="美女A">
+                <img src="image/1-small.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#" title="美女B">
+                <img src="image/2-small.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#" title="美女C">
+                <img src="image/3-small.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="#" title="美女D">
+                <img src="image/4-small.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+    <div class="datu">
+        <img id="image" src="image/placeholder.png" alt="">
+    </div>
+    <p>选择一个图片</p>
+    <script>
+        var a = document.querySelectorAll('a');
+        var p = document.querySelector('p');
+        var img=document.getElementById('image');
+        for (let i = 0; i < a.length; i++) {
+            a[i].onclick=function(){
+                img.src=this.href;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

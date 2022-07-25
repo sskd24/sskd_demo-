@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        p {
+            width: 500px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>1123</p>
+    <script>
+        // 1. 获取元素 
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2.注册事件
+        btn.onclick = function () {
+            div.innerText = getDate();//建议使用innerHTML
+        }
+        // 我们元素可以不用添加事件(操作dom）
+        var p = document.querySelector('p');//获取元素
+        p.innerText = getDate();//修改元素内容（//建议使用innerHTML）
+
+        function getDate() {
+            var date = new Date();
+            // 我们写一个 2019年 5月 1日 星期三
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var day = date.getDay();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            month = month < 10 ? '0' + month : month;
+            dates = dates < 10 ? '0' + dates : dates;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            return '今天是：' + year + '年' + month + '月' + dates + '日 ' + h + '时' + m + '分' + s + '秒 ' + arr[day];
+        }
+    </script>
+</body>
+</body>
+
+</html>
