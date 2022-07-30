@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap table {
+            width: 300px;
+            margin: 100px auto;
+            /* text-align: center; */
+            /* border:1px solid #d0d0d0; */
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: 14px;
+        }
+
+        .wrap table thead tr {
+            height: 42px;
+            background-color: #0099cc;
+        }
+
+        .wrap table thead tr th {
+            padding: 10px;
+            border: 1px solid #d0d0d0;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .wrap table tbody {
+            background-color: #f0f0f0;
+        }
+
+        .wrap table tbody tr:hover {
+            background-color: #fafafa;
+        }
+
+        .wrap table tbody tr td {
+            padding: 10px;
+            border: 1px solid #d0d0d0;
+            cursor: pointer;
+            /* text-align: left; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <th>商品</th>
+                    <th>价钱</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPad Pro</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPad Air</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Apple Watch</td>
+                    <td>8000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var checkboxs = document.querySelectorAll('input');//获取所有复选框
+
+        for (let i = 0; i < checkboxs.length; i++) {//给所有复选框添加点击事件
+            
+            checkboxs[i].onclick = function () {
+                //当点击全选按钮时循环选中下面所有按钮
+                if (i == 0) {
+                    for (let i = 0; i < checkboxs.length; i++) {
+                        checkboxs[i].checked = checkboxs[0].checked;
+                    }
+                }
+
+                //当点击其他按钮时
+                else {
+                    // alert("1");
+                    var count = 1;
+                    for (var j = 1; j < checkboxs.length; j++) {
+                        count *= checkboxs[j].checked;//运用checked性质为1和0，只要有一次为0就退出循环
+                        if (!count) {
+                            break;// 退出for循环 这样可以提高执行效率 因为只要有一个没有选中，剩下的就无需循环判断了
+                        }
+                    }
+                        checkboxs[0].checked = count;//将count值赋值给主选框
+
+                }
+
+
+            }
+        }
+    </script>
+</body>
+
+</html>
